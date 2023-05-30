@@ -23,6 +23,8 @@ public class Medidas {
         System.out.println("(2) - Area do Retângulo");
         System.out.println("(3) - Area do Triângulo");
         System.out.println("(4) - Area do Circulo");
+        System.out.println("(5) - Tabuada");
+        System.out.println("(6) - Fibonacci");
 
         opcao = entrada.nextLine(); // leitura da opção
 
@@ -39,6 +41,12 @@ public class Medidas {
             case "4":
                 area = calcularAreaDoCirculo();
                 break;
+            case "5":
+                tabuada();
+                break;
+            case "6":
+                fibonacci();
+                break;
             default:
                 System.out.println("Opção Inválida: " + opcao);
         }
@@ -54,6 +62,16 @@ public class Medidas {
 
         System.out.println("Digite o tamanho do lado: ");
         lado = entrada.nextInt(); // leitura do tamanho do lado
+
+        // Desenhar o quadrado
+        for (int linha = 1; linha <= lado; linha += 2) {
+            for (int coluna = 1; coluna <= lado; coluna++) {
+                System.out.print("#");
+            }
+            System.out.println(""); // pular de linha
+        }
+
+        System.out.println("");
         return lado * lado; // retorna a área do quadrado
     }
 
@@ -88,6 +106,52 @@ public class Medidas {
         System.out.println("Digite o tamanho do raio: ");
         raio = entrada.nextInt();
         return (Math.PI * raio * raio) / 2;
+    }
+
+    public static void tabuada() {
+
+        byte numero;
+        byte i;
+
+        System.out.print("Você quer calcular a tabuada de qual número? ");
+        numero = entrada.nextByte();
+        for (i = 1; i <= 10; i++) {
+            System.out.print(numero * i + " ");
+        }
+    }
+
+    public static void fibonacci() {
+
+        byte numero;
+        byte i;
+        int num1;
+        int num2;
+        int fib;
+
+        System.out.print("Quantos números deseja calcular na sequência? ");
+        numero = entrada.nextByte();
+
+        switch (numero) {
+            case 0:
+                System.out.println("A sequência está vazia");
+                break;
+            case 1:
+                System.out.println("Sequeência de Fibonacci: 1");
+                break;
+            default:
+                num1 = 0;
+                num2 = 1;
+
+                System.out.print("Sequência de Fibonacci: 1 ");
+                for (i = 2; i <= numero; i++) {
+                    fib = num1 + num2;
+                    System.out.print(fib + " ");
+                    num1 = num2;
+                    num2 = fib;
+                }
+
+        }
+
     }
 
 }
