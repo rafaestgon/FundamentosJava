@@ -18,57 +18,57 @@ public class Medidas {
         String opcao = "";
         double area = 0; // receber o resultado dos cálculos de área
 
-        while (!opcao.equalsIgnoreCase("s")) {
-            System.out.println("Escolha o Cálculo Desejado");
-            System.out.println("(1) - Area do Quadrado");
-            System.out.println("(2) - Area do Retângulo");
-            System.out.println("(3) - Area do Triângulo");
-            System.out.println("(4) - Area do Circulo");
-            System.out.println("(5) - Tabuada");
-            System.out.println("(6) - Fibonacci");
-            System.out.println("(7) - Contagem Regressiva");
-            System.out.println("(8) - Divisão por Zero - Try/Catch");
-            System.out.println("(S) - Sair");
+        // while (!opcao.equalsIgnoreCase("s")) {
+        System.out.println("Escolha o Cálculo Desejado");
+        System.out.println("(1) - Area do Quadrado");
+        System.out.println("(2) - Area do Retângulo");
+        System.out.println("(3) - Area do Triângulo");
+        System.out.println("(4) - Area do Circulo");
+        System.out.println("(5) - Tabuada");
+        System.out.println("(6) - Fibonacci");
+        System.out.println("(7) - Contagem Regressiva");
+        System.out.println("(8) - Divisão por Zero - Try/Catch");
+        System.out.println("(S) - Sair");
 
-            opcao = entrada.nextLine(); // leitura da opção
+        opcao = entrada.nextLine(); // leitura da opção
 
-            switch (opcao) {
-                case "1":
-                    area = calcularAreaDoQuadrado();
-                    break;
-                case "2":
-                    area = calcularAreaDoRetangulo();
-                    break;
-                case "3":
-                    area = calcularAreaDoTriangulo();
-                    break;
-                case "4":
-                    area = calcularAreaDoCirculo();
-                    break;
-                case "5":
-                    tabuada();
-                    break;
-                case "6":
-                    fibonacci();
-                    break;
-                case "7":
-                    contagemRegressiva();
-                    break;
-                case "8":
-                    divisaoPorZero();
-                    break;
-                case "S":
-                case "s":
-                    System.out.println("Agradecemos pela preferência!! Fui!!");
-                    break;
-                default:
-                    System.out.println("Opção Inválida: " + opcao);
-            }
-
-            if (area > 0) {
-                System.out.println("A Area é de " + area + "m²");
-            }
+        switch (opcao) {
+            case "1":
+                area = calcularAreaDoQuadrado();
+                break;
+            case "2":
+                area = calcularAreaDoRetangulo();
+                break;
+            case "3":
+                area = calcularAreaDoTriangulo();
+                break;
+            case "4":
+                area = calcularAreaDoCirculo();
+                break;
+            case "5":
+                tabuada();
+                break;
+            case "6":
+                fibonacci();
+                break;
+            case "7":
+                contagemRegressiva();
+                break;
+            case "8":
+                divisaoPorZero();
+                break;
+            case "S":
+            case "s":
+                System.out.println("Agradecemos pela preferência!! Fui!!");
+                break;
+            default:
+                System.out.println("Opção Inválida: " + opcao);
         }
+
+        if (area > 0) {
+            System.out.println("A Area é de " + area + "m²");
+        }
+        // }
     }
 
     public static int calcularAreaDoQuadrado() {
@@ -102,24 +102,24 @@ public class Medidas {
         return ladoA * ladoB;
     }
 
-    public static int calcularAreaDoTriangulo() {
+    public static float calcularAreaDoTriangulo() {
 
-        int base;
-        int altura;
+        float base;
+        float altura;
 
         System.out.println("Digite o tamanho da base: ");
-        base = entrada.nextInt();
+        base = entrada.nextFloat();
         System.out.println("Digite o tamanho da altura: ");
-        altura = entrada.nextInt();
+        altura = entrada.nextFloat();
         return (base * altura) / 2;
     }
 
     public static double calcularAreaDoCirculo() {
 
-        int raio;
+        double raio;
 
         System.out.println("Digite o tamanho do raio: ");
-        raio = entrada.nextInt();
+        raio = entrada.nextDouble();
         return (Math.PI * raio * raio) / 2;
     }
 
@@ -183,17 +183,22 @@ public class Medidas {
         }
     }
 
-    public static void divisaoPorZero(){
+    public static void divisaoPorZero() {
 
-        int dividendo;
-        int divisor;
+        byte dividendo;
+        byte divisor;
 
-        System.out.print("Qual é o dividendo? (Número a ser dividido) ");
-        dividendo = entrada.nextInt();
-        System.out.print("Qual é o divisor? (Número que vai dividir o dividendo) ");
-        divisor = entrada.nextInt();
-
-
+        try {
+            System.out.print("Qual é o dividendo? (Número a ser dividido) ");
+            dividendo = entrada.nextByte();
+            System.out.print("Qual é o divisor? (Número que vai dividir o dividendo) ");
+            divisor = entrada.nextByte();
+            System.out.println("O resultado é: " + dividendo / divisor);
+        } catch (Exception err) {
+            System.out.println("Mensagem temporaria em inglês: " + err.getMessage());
+        } finally {
+            System.out.println("Por hoje é só pessoal!");
+        }
     }
 
 }
