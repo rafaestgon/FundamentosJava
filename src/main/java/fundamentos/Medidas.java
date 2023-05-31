@@ -15,44 +15,55 @@ public class Medidas {
     // 3.2 - Métodos e Funções
     public static void main(String[] args) {
 
-        String opcao;
+        String opcao = "";
         double area = 0; // receber o resultado dos cálculos de área
 
-        System.out.println("Escolha o Cálculo Desejado");
-        System.out.println("(1) - Area do Quadrado");
-        System.out.println("(2) - Area do Retângulo");
-        System.out.println("(3) - Area do Triângulo");
-        System.out.println("(4) - Area do Circulo");
-        System.out.println("(5) - Tabuada");
-        System.out.println("(6) - Fibonacci");
+        while (!opcao.equalsIgnoreCase("s")) {
+            System.out.println("Escolha o Cálculo Desejado");
+            System.out.println("(1) - Area do Quadrado");
+            System.out.println("(2) - Area do Retângulo");
+            System.out.println("(3) - Area do Triângulo");
+            System.out.println("(4) - Area do Circulo");
+            System.out.println("(5) - Tabuada");
+            System.out.println("(6) - Fibonacci");
+            System.out.println("(7) - Contagem Regressiva");
+            System.out.println("(S) - Sair");
 
-        opcao = entrada.nextLine(); // leitura da opção
+            opcao = entrada.nextLine(); // leitura da opção
 
-        switch (opcao) {
-            case "1":
-                area = calcularAreaDoQuadrado();
-                break;
-            case "2":
-                area = calcularAreaDoRetangulo();
-                break;
-            case "3":
-                area = calcularAreaDoTriangulo();
-                break;
-            case "4":
-                area = calcularAreaDoCirculo();
-                break;
-            case "5":
-                tabuada();
-                break;
-            case "6":
-                fibonacci();
-                break;
-            default:
-                System.out.println("Opção Inválida: " + opcao);
-        }
+            switch (opcao) {
+                case "1":
+                    area = calcularAreaDoQuadrado();
+                    break;
+                case "2":
+                    area = calcularAreaDoRetangulo();
+                    break;
+                case "3":
+                    area = calcularAreaDoTriangulo();
+                    break;
+                case "4":
+                    area = calcularAreaDoCirculo();
+                    break;
+                case "5":
+                    tabuada();
+                    break;
+                case "6":
+                    fibonacci();
+                    break;
+                case "7":
+                    contagemRegressiva();
+                    break;
+                case "S":
+                case "s":
+                    System.out.println("Agradecemos pela preferência!! Fui!!");
+                    break;
+                default:
+                    System.out.println("Opção Inválida: " + opcao);
+            }
 
-        if (area > 0) {
-            System.out.println("A Area é de " + area + "m²");
+            if (area > 0) {
+                System.out.println("A Area é de " + area + "m²");
+            }
         }
     }
 
@@ -149,9 +160,23 @@ public class Medidas {
                     num1 = num2;
                     num2 = fib;
                 }
-
         }
+    }
 
+    public static void contagemRegressiva(){
+
+        int i;
+        int numero;
+        int decrescimo;
+
+        System.out.print("Começar a contagem a partir de qual número? ");
+        numero = entrada.nextInt();
+        System.out.print("Diminuindo de quantos em quantos números por vez? ");
+        decrescimo = entrada.nextInt();
+
+        for (i = numero; i >= 1; i-= decrescimo){
+            System.out.println(i);
+        }
     }
 
 }
