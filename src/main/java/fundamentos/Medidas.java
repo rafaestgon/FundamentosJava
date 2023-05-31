@@ -75,7 +75,7 @@ public class Medidas {
 
         int lado; // tamanho do lado do quadrado
 
-        System.out.println("Digite o tamanho do lado: ");
+        System.out.print("Digite o tamanho do lado: ");
         lado = entrada.nextInt(); // leitura do tamanho do lado
 
         // Desenhar o quadrado
@@ -87,7 +87,8 @@ public class Medidas {
         }
 
         System.out.println("");
-        return lado * lado; // retorna a área do quadrado
+        System.out.println("A area do quadrado é: " + lado * lado +"m²");
+        return lado * lado;
     }
 
     public static int calcularAreaDoRetangulo() {
@@ -125,11 +126,11 @@ public class Medidas {
 
     public static void tabuada() {
 
-        byte numero;
-        byte i;
+        int numero;
+        int i;
 
         System.out.print("Você quer calcular a tabuada de qual número? ");
-        numero = entrada.nextByte();
+        numero = entrada.nextInt();
         for (i = 1; i <= 10; i++) {
             System.out.print(numero * i + " ");
         }
