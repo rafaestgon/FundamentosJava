@@ -4,13 +4,15 @@ package fundamentos;
 public class Contadores extends Medidas { //Traz automaticamente tudo que foi construido na classe Medidas
 
     public static void main(String[] args){
-        System.out.print("Deseja calcula a Area do Quadrado? <S/N> ");
+        System.out.print("Deseja fazer uma contagem regressiva? <S/N> ");
         String resposta = entrada.nextLine();
         if (resposta.equalsIgnoreCase("s")) {
-            calcularAreaDoQuadrado();
+            contagemRegressiva();
         }
         else {
             System.out.println("Até a próxima!");
         }
     }
 }
+
+
